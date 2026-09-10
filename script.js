@@ -45,32 +45,41 @@ document.querySelectorAll(".navbar a").forEach(link => {
 
 
 /* =========================================
-   DARK / LIGHT MODE
+   PROFILE PICTURE — CURSOR-TRACKED GLOW
 ========================================= */
-/*
-const themeBtn = document.getElementById("theme-btn");
 
-themeBtn.addEventListener("click", () => {
+const heroImage = document.querySelector(".hero-image");
+const profileCircle = document.querySelector(".profile-circle");
 
-    document.body.classList.toggle("light");
+if (heroImage && profileCircle) {
 
-    const icon = themeBtn.querySelector("i");
+    heroImage.addEventListener("mousemove", (event) => {
 
-    if (document.body.classList.contains("light")) {
+        const rect = profileCircle.getBoundingClientRect();
 
-        icon.classList.remove("fa-moon");
-        icon.classList.add("fa-sun");
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
 
-    } else {
+        profileCircle.style.setProperty("--glow-x", `${x}px`);
+        profileCircle.style.setProperty("--glow-y", `${y}px`);
 
-        icon.classList.remove("fa-sun");
-        icon.classList.add("fa-moon");
+    });
 
-    }
+    heroImage.addEventListener("mouseenter", () => {
 
-});
+        profileCircle.classList.add("glowing");
 
-*/
+    });
+
+    heroImage.addEventListener("mouseleave", () => {
+
+        profileCircle.classList.remove("glowing");
+
+    });
+
+}
+
+
 /* =========================================
    SCROLL TO TOP
 ========================================= */
@@ -159,8 +168,9 @@ contactForm.addEventListener("submit", (event) => {
 
     event.preventDefault();
 
-    const name =
-        document.getElementById("name").value;
+    const nameField = document.getElementById("name");
+
+    const name = nameField ? nameField.value : "there";
 
     formStatus.textContent =
         `Thanks ${name}! Your message has been received.`;
