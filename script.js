@@ -1,4 +1,38 @@
 /* =========================================
+   PRELOADER + HERO ENTRANCE
+========================================= */
+
+const preloader = document.getElementById("preloader");
+
+function revealPage() {
+
+    document.body.classList.add("loaded");
+
+    if (preloader) {
+        preloader.classList.add("hide");
+    }
+
+}
+
+// Hide as soon as everything is loaded, with a small minimum
+// display time so the animation doesn't just flash on fast connections.
+const preloaderStart = Date.now();
+const MIN_PRELOADER_TIME = 700;
+
+window.addEventListener("load", () => {
+
+    const elapsed = Date.now() - preloaderStart;
+    const remaining = Math.max(MIN_PRELOADER_TIME - elapsed, 0);
+
+    setTimeout(revealPage, remaining);
+
+});
+
+// Safety fallback in case the load event is delayed by a slow asset.
+setTimeout(revealPage, 2500);
+
+
+/* =========================================
    MOBILE MENU
 ========================================= */
 
@@ -42,42 +76,6 @@ document.querySelectorAll(".navbar a").forEach(link => {
     });
 
 });
-
-
-/* =========================================
-   PROFILE PICTURE — CURSOR-TRACKED GLOW
-========================================= */
-
-const heroImage = document.querySelector(".hero-image");
-const profileCircle = document.querySelector(".profile-circle");
-
-if (heroImage && profileCircle) {
-
-    heroImage.addEventListener("mousemove", (event) => {
-
-        const rect = profileCircle.getBoundingClientRect();
-
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-
-        profileCircle.style.setProperty("--glow-x", `${x}px`);
-        profileCircle.style.setProperty("--glow-y", `${y}px`);
-
-    });
-
-    heroImage.addEventListener("mouseenter", () => {
-
-        profileCircle.classList.add("glowing");
-
-    });
-
-    heroImage.addEventListener("mouseleave", () => {
-
-        profileCircle.classList.remove("glowing");
-
-    });
-
-}
 
 
 /* =========================================
@@ -168,12 +166,14 @@ contactForm.addEventListener("submit", (event) => {
 
     event.preventDefault();
 
-    const nameField = document.getElementById("name");
+    const name =
+        document.getElementById("name") ?
+        document.getElementById("name").value :
+        "";
 
-    const name = nameField ? nameField.value : "there";
-
-    formStatus.textContent =
-        `Thanks ${name}! Your message has been received.`;
+    formStatus.textContent = name ?
+        `Thanks ${name}! Your message has been received.` :
+        "Thanks! Your message has been received.";
 
     contactForm.reset();
 
@@ -184,9 +184,7 @@ contactForm.addEventListener("submit", (event) => {
    SCROLL REVEAL ANIMATION
 ========================================= */
 
-const animatedElements = document.querySelectorAll(
-    ".skill-card, .stat-card, .strength, .education-card, .project-container"
-);
+const animatedElements = document.querySelectorAll(".reveal-item");
 
 
 const observer = new IntersectionObserver(
@@ -194,17 +192,17 @@ const observer = new IntersectionObserver(
 
         entries.forEach(entry => {
 
-            if (entry.isIntersecting) {
-
-                entry.target.classList.add("show");
-
-            }
+            // Toggle instead of only adding, so every card, heading, and
+            // panel replays its reveal animation each time it re-enters
+            // view — scrolling down past it or back up over it again.
+            entry.target.classList.toggle("show", entry.isIntersecting);
 
         });
 
     },
     {
-        threshold: 0.15
+        threshold: 0.2,
+        rootMargin: "-40px 0px -40px 0px"
     }
 );
 

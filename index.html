@@ -9,11 +9,11 @@
 
     <link rel="stylesheet" href="style.css">
 
-    <!-- Google Fonts: Sora for display/headings, Inter for body -->
+    <!-- Google Fonts: Manrope for display, IBM Plex Sans for body -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
     <!-- Font Awesome -->
@@ -23,6 +23,17 @@
 </head>
 
 <body>
+
+    <!-- ================= PRELOADER ================= -->
+
+    <div class="preloader" id="preloader">
+        <div class="preloader-mark">
+            <span>S</span>
+            <div class="preloader-ring"></div>
+        </div>
+        <div class="preloader-bar"><span></span></div>
+    </div>
+
 
     <!-- ================= NAVBAR ================= -->
 
@@ -60,17 +71,17 @@
 
         <div class="home-text">
 
-            <p class="hello">Hello, I'm</p>
+            <p class="hello reveal-up" style="--delay:0">Hello, I'm</p>
 
-            <h1>
+            <h1 class="reveal-up" style="--delay:1">
                 Spandana <span> </span>
             </h1>
 
-            <h2>
+            <h2 class="reveal-up" style="--delay:2">
                 BCA Graduate | Fresher
             </h2>
 
-            <p class="intro">
+            <p class="intro reveal-up" style="--delay:3">
 
                 BCA graduate with knowledge of Java and Python,
                 passionate about learning new technologies and building
@@ -78,7 +89,7 @@
 
             </p>
 
-            <div class="home-buttons">
+            <div class="home-buttons reveal-up" style="--delay:4">
 
                 <a href="#project" class="btn">
                     View Project
@@ -97,7 +108,7 @@
             </div>
 
 
-            <div class="social-links">
+            <div class="social-links reveal-up" style="--delay:5">
 
                 <a href="https://github.com/Spandana957" target="_blank">
                     <i class="fa-brands fa-github"></i>
@@ -118,14 +129,16 @@
 
         <!-- Profile -->
 
-        <div class="hero-image">
+        <div class="hero-image reveal-scale" style="--delay:2">
 
             <div class="glow"></div>
 
             <div class="profile-circle">
 
+                <div class="profile-ring"></div>
+
                 <img
-                    src="images/profile.png "
+                    src="images/profile.png"
                     alt="Spandana"
                 >
 
@@ -150,18 +163,18 @@
 
     <section class="about section" id="about">
 
-        <div class="section-heading">
+        <div class="section-heading reveal-item dir-up">
 
             <p>About me</p>
 
-            <h2>Who I Am</h2>
+            <h2>Who <span>I Am</span></h2>
 
         </div>
 
 
         <div class="about-container">
 
-            <div class="about-box">
+            <div class="about-box reveal-item dir-left">
 
                 <h3>
                     Curious. Adaptable. Always Learning.
@@ -169,7 +182,7 @@
 
                 <p>
 
-                    I am a BCA graduate with knowledge of
+                    I am a BCA graduate with basic knowledge of
                     Java and Python. I am enthusiastic about learning
                     new technologies, improving my technical skills
                     and gaining practical experience.
@@ -189,7 +202,7 @@
 
             <div class="about-stats">
 
-                <div class="stat-card">
+                <div class="stat-card reveal-item dir-up">
 
                     <i class="fa-solid fa-graduation-cap"></i>
 
@@ -200,7 +213,7 @@
                 </div>
 
 
-                <div class="stat-card">
+                <div class="stat-card reveal-item dir-up">
 
                     <i class="fa-solid fa-code"></i>
 
@@ -211,7 +224,7 @@
                 </div>
 
 
-                <div class="stat-card">
+                <div class="stat-card reveal-item dir-up">
 
                     <i class="fa-brands fa-python"></i>
 
@@ -222,7 +235,7 @@
                 </div>
 
 
-                <div class="stat-card">
+                <div class="stat-card reveal-item dir-up">
 
                     <i class="fa-solid fa-cloud"></i>
 
@@ -243,18 +256,18 @@
 
     <section class="skills section" id="skills">
 
-        <div class="section-heading">
+        <div class="section-heading reveal-item dir-up">
 
             <p>What I know</p>
 
-            <h2>Technical Skills</h2>
+            <h2>Technical <span>Skills</span></h2>
 
         </div>
 
 
         <div class="skills-grid">
 
-            <div class="skill-card">
+            <div class="skill-card reveal-item dir-up">
 
                 <div class="skill-icon java">
                     <i class="fa-brands fa-java"></i>
@@ -269,7 +282,7 @@
             </div>
 
 
-            <div class="skill-card">
+            <div class="skill-card reveal-item dir-up">
 
                 <div class="skill-icon python">
                     <i class="fa-brands fa-python"></i>
@@ -284,7 +297,7 @@
             </div>
 
 
-            <div class="skill-card">
+            <div class="skill-card reveal-item dir-up">
 
                 <div class="skill-icon web">
                     <i class="fa-solid fa-code"></i>
@@ -299,7 +312,7 @@
             </div>
 
 
-            <div class="skill-card">
+            <div class="skill-card reveal-item dir-up">
 
                 <div class="skill-icon database">
                     <i class="fa-solid fa-database"></i>
@@ -314,7 +327,7 @@
             </div>
 
 
-            <div class="skill-card">
+            <div class="skill-card reveal-item dir-up">
 
                 <div class="skill-icon cloud">
                     <i class="fa-solid fa-cloud"></i>
@@ -329,7 +342,7 @@
             </div>
 
 
-            <div class="skill-card">
+            <div class="skill-card reveal-item dir-up">
 
                 <div class="skill-icon eclipse">
                     <i class="fa-solid fa-laptop-code"></i>
@@ -343,7 +356,7 @@
 
             </div>
 
-            <div class="skill-card">
+            <div class="skill-card reveal-item dir-up">
 
                 <div class="skill-icon github">
                     <i class="fa-brands fa-github"></i>
@@ -357,10 +370,10 @@
 
             </div>
 
-            <div class="skill-card">
+            <div class="skill-card reveal-item dir-up">
 
                 <div class="skill-icon django">
-                    <i class="fa-brands fa-python"></i>
+                    <i class="fa-solid fa-layer-group"></i>
                 </div>
 
                 <h3>Django</h3>
@@ -379,18 +392,18 @@
 
     <section class="project section" id="project">
 
-        <div class="section-heading">
+        <div class="section-heading reveal-item dir-up">
 
             <p>Featured project</p>
 
-            <h2>What I've Built</h2>
+            <h2>What I've <span>Built</span></h2>
 
         </div>
 
 
         <div class="project-container">
 
-            <div class="project-visual">
+            <div class="project-visual reveal-item dir-left">
 
                 <div class="movie-screen">
 
@@ -443,7 +456,7 @@
             </div>
 
 
-            <div class="project-info">
+            <div class="project-info reveal-item dir-right">
 
                 <span class="project-label">
                     HTML • CSS • PHP • MySQL
@@ -473,32 +486,32 @@
 
                 <div class="features">
 
-                    <div>
+                    <div class="reveal-item dir-up">
                         <i class="fa-solid fa-check"></i>
                         Visual Seat Map
                     </div>
 
-                    <div>
+                    <div class="reveal-item dir-up">
                         <i class="fa-solid fa-check"></i>
                         User Registration & Login
                     </div>
 
-                    <div>
+                    <div class="reveal-item dir-up">
                         <i class="fa-solid fa-check"></i>
                         Booking & Payment
                     </div>
 
-                    <div>
+                    <div class="reveal-item dir-up">
                         <i class="fa-solid fa-check"></i>
                         E-Tickets
                     </div>
 
-                    <div>
+                    <div class="reveal-item dir-up">
                         <i class="fa-solid fa-check"></i>
                         Admin Dashboard
                     </div>
 
-                    <div>
+                    <div class="reveal-item dir-up">
                         <i class="fa-solid fa-check"></i>
                         Movie & Show Management
                     </div>
@@ -516,11 +529,11 @@
 
     <section class="education section" id="education">
 
-        <div class="section-heading">
+        <div class="section-heading reveal-item dir-up">
 
             <p>My journey</p>
 
-            <h2>Education & Growth</h2>
+            <h2>Education & <span>Growth</span></h2>
 
         </div>
 
@@ -530,7 +543,7 @@
             <div class="education-line"></div>
 
 
-            <div class="education-card">
+            <div class="education-card reveal-item dir-left">
 
                 <div class="education-icon">
 
@@ -545,7 +558,7 @@
                     </span>
 
                     <h3>
-                        Bachelor of Computer Applications
+                        Bachelor of Computer Science
                     </h3>
 
                     <h4>
@@ -561,7 +574,7 @@
             </div>
 
 
-            <div class="education-card">
+            <div class="education-card reveal-item dir-left">
 
                 <div class="education-icon">
 
@@ -601,18 +614,18 @@
 
     <section class="soft-skills section">
 
-        <div class="section-heading">
+        <div class="section-heading reveal-item dir-up">
 
             <p>Beyond code</p>
 
-            <h2>My Strengths</h2>
+            <h2>My <span>Strengths</span></h2>
 
         </div>
 
 
         <div class="strength-container">
 
-            <div class="strength">
+            <div class="strength reveal-item dir-up">
 
                 <i class="fa-solid fa-arrows-rotate"></i>
 
@@ -626,7 +639,7 @@
             </div>
 
 
-            <div class="strength">
+            <div class="strength reveal-item dir-up">
 
                 <i class="fa-solid fa-people-group"></i>
 
@@ -648,18 +661,18 @@
 
     <section class="contact section" id="contact">
 
-        <div class="section-heading">
+        <div class="section-heading reveal-item dir-up">
 
             <p>Get in touch</p>
 
-            <h2>Let's Connect</h2>
+            <h2>Let's <span>Connect</span></h2>
 
         </div>
 
 
         <div class="contact-container">
 
-            <div class="contact-text">
+            <div class="contact-text reveal-item dir-left">
 
                 <h3>
                     Looking for an opportunity?
@@ -727,42 +740,7 @@
             </div>
 
 
-            <form class="contact-form" id="contact-form">
-
-                <!--<div class="input-row">
-
-                    <input
-                        type="text"
-                        id="name"
-                        placeholder="Your Name"
-                        required
-                    >
-
-                    <input
-                        type="email"
-                        id="email"
-                        placeholder="Your Email"
-                        required
-                    >
-
-                </div>
-
-
-                <textarea
-                    id="message"
-                    placeholder="Write your message..."
-                    required
-                ></textarea>
-
-
-                <button type="submit" class="btn">
-
-                    Send Message
-
-                    <i class="fa-solid fa-paper-plane"></i>
-
-                </button>-->
-
+            <form class="contact-form reveal-item dir-right" id="contact-form">
 
                 <p id="form-status"></p>
 
